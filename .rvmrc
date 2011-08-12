@@ -1,1 +1,1 @@
-rvm ree@lotus_notes_calendar --create
+rvm 1.9.2@lotus_notes_calendar --create
