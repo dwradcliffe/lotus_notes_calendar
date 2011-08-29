@@ -44,6 +44,8 @@ module LotusNotesCalendar
           url += "&KeyType=time"
           url += "&StartKey=#{options[:start]}"
           url += "&UntilKey=#{options[:end]}"
+        elsif options[:date]
+          url += "&Date=#{options[:date]}"
         end
         url
       end
