@@ -1,5 +1,6 @@
 require 'nokogiri'
-require 'open-uri'
+require 'net/http'
+require 'uri'
 
 module LotusNotesCalendar
   class Calendar
@@ -51,8 +52,14 @@ module LotusNotesCalendar
       end
       def open_url(url)
         begin
-          open(url)
-        rescue Timeout::Error
+          Rails.logger.info url
+          uri = URI.parse(url)
+          http = Net::HTTP.new(uri.host, uri.port)
+          http.use_ssl = uri.is_a? URI::HTTPS
+          # http.ca_file = "/etc/ssl/certs/ca-certificate.crt"
+          request = Net::HTTP::Get.new(uri.request_uri)
+          http.request(request).body
+        rescue Errno::ETIMEDOUT
           ""
         end
       end
