@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{lotus_notes_calendar}
-  s.version = "0.0.1"
+  s.version = "0.0.1.pre"
 
-  s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["David Radcliffe"]
-  s.date = %q{2011-08-12}
+  s.required_rubygems_version = Gem::Requirement.new("> 1.3.1") if s.respond_to? :required_rubygems_version=
+  s.authors = [%q{David Radcliffe}]
+  s.date = %q{2012-01-17}
   s.description = %q{Given a Lotus Notes calendar url, parse events into ruby class. Includes basic query options.}
   s.email = %q{david@etchdev.com}
   s.extra_rdoc_files = [
@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
     ".rvmrc",
+    ".travis.yml",
     "Gemfile",
     "Gemfile.lock",
     "LICENSE.txt",
@@ -28,17 +29,17 @@ Gem::Specification.new do |s|
     "lib/lotus_notes_calendar.rb",
     "lib/lotus_notes_calendar/calendar.rb",
     "lib/lotus_notes_calendar/event.rb",
+    "lotus_notes_calendar.gemspec",
     "test/helper.rb",
     "test/test_lotus_notes_calendar.rb"
   ]
   s.homepage = %q{http://github.com/dwradcliffe/lotus_notes_calendar}
-  s.licenses = ["MIT"]
-  s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.7}
+  s.licenses = [%q{MIT}]
+  s.require_paths = [%q{lib}]
+  s.rubygems_version = %q{1.8.8}
   s.summary = %q{Read and parse Lotus Notes calendars}
 
   if s.respond_to? :specification_version then
-    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
