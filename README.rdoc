@@ -1,6 +1,6 @@
 = lotus_notes_calendar
 
-Description goes here.
+Library to fetch and parse events from a Lotus Notes calendar.
 
 == Contributing to lotus_notes_calendar
  

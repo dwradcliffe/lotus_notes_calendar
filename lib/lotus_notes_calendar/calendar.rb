@@ -52,7 +52,7 @@ module LotusNotesCalendar
       end
       def open_url(url)
         begin
-          Rails.logger.info url
+          # Rails.logger.info url
           uri = URI.parse(url)
           http = Net::HTTP.new(uri.host, uri.port)
           http.use_ssl = uri.is_a? URI::HTTPS
