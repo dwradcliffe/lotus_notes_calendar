@@ -5,10 +5,9 @@ require 'uri'
 module LotusNotesCalendar
   class Calendar
     
-    attr_reader :name, :url
+    attr_reader :url
   
-    def initialize(url, name = "")
-      @name = name
+    def initialize(url)
       @url = url
       @results = {}
     end

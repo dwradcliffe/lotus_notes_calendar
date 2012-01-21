@@ -2,7 +2,13 @@ module LotusNotesCalendar
   class Event
   
     attr_accessor :id, :at, :text, :calendar
-  
+    
+    def initialize(id = nil, at = nil, text = nil, url = nil)
+      @id = id
+      @at = at
+      @text = text
+      @calendar = Calendar.new(url)
+    end
   
     def self.from_xml(calendar, xml_node)
       # xml_node is 'viewentry' node

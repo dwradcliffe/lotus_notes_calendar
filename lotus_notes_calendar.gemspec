@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new("> 1.3.1") if s.respond_to? :required_rubygems_version=
   s.authors = [%q{David Radcliffe}]
-  s.date = %q{2012-01-17}
+  s.date = %q{2012-01-21}
   s.description = %q{Given a Lotus Notes calendar url, parse events into ruby class. Includes basic query options.}
   s.email = %q{david@etchdev.com}
   s.extra_rdoc_files = [
@@ -31,7 +31,8 @@ Gem::Specification.new do |s|
     "lib/lotus_notes_calendar/event.rb",
     "lotus_notes_calendar.gemspec",
     "test/helper.rb",
-    "test/test_lotus_notes_calendar.rb"
+    "test/test_calendar.rb",
+    "test/test_event.rb"
   ]
   s.homepage = %q{http://github.com/dwradcliffe/lotus_notes_calendar}
   s.licenses = [%q{MIT}]
@@ -48,12 +49,18 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.6.0"])
       s.add_development_dependency(%q<rcov>, [">= 0"])
+      s.add_development_dependency(%q<turn>, ["~> 0.8.3"])
+      s.add_development_dependency(%q<rdoc>, ["~> 3.12"])
+      s.add_development_dependency(%q<minitest>, ["~> 2.10.1"])
     else
       s.add_dependency(%q<nokogiri>, [">= 0"])
       s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_dependency(%q<jeweler>, ["~> 1.6.0"])
       s.add_dependency(%q<rcov>, [">= 0"])
+      s.add_dependency(%q<turn>, ["~> 0.8.3"])
+      s.add_dependency(%q<rdoc>, ["~> 3.12"])
+      s.add_dependency(%q<minitest>, ["~> 2.10.1"])
     end
   else
     s.add_dependency(%q<nokogiri>, [">= 0"])
@@ -61,6 +68,9 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<bundler>, ["~> 1.0.0"])
     s.add_dependency(%q<jeweler>, ["~> 1.6.0"])
     s.add_dependency(%q<rcov>, [">= 0"])
+    s.add_dependency(%q<turn>, ["~> 0.8.3"])
+    s.add_dependency(%q<rdoc>, ["~> 3.12"])
+    s.add_dependency(%q<minitest>, ["~> 2.10.1"])
   end
 end
 
