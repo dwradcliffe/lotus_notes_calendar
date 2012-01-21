@@ -3,7 +3,7 @@ require 'helper'
 class TestCalendar < Test::Unit::TestCase
   
   should "be able to get current events" do
-    calendar = LotusNotesCalendar::Calendar.new("https://harmony.mooresvilleschools.org/madison.nsf/school+calendar")
+    calendar = LotusNotesCalendar::Calendar.new("https://harmony.mooresvilleschools.org/centraloffice.nsf/school+calendar")
     results = calendar.all
     assert results.count > 0
     # assert_equal "7th Gr. First Football Practice - 9-11am", results[0].text
@@ -18,5 +18,7 @@ class TestCalendar < Test::Unit::TestCase
     assert_equal Date.new(2011, 8, 11), result.at
     assert_equal "Thursday, Aug 11", result.at.strftime('%A, %b %e')
   end
+  
+  should "be able to get events by month"
   
 end

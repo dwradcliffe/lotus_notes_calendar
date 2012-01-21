@@ -32,6 +32,7 @@ module LotusNotesCalendar
       doc = Nokogiri::XML(open_url(url))
       events = []
       doc.xpath('//viewentries/viewentry').each do |event_xml|
+        next if event_xml.has_attribute?('conflict') and event_xml['conflict'] == "true"
         events << Event.from_xml(self, event_xml)
       end
       @results[url] = events
