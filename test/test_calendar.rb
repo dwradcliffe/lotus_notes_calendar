@@ -19,6 +19,17 @@ class TestCalendar < Test::Unit::TestCase
     assert_equal "Thursday, Aug 11", result.at.strftime('%A, %b %e')
   end
   
-  should "be able to get events by month"
+  should "be able to build url to get events by month" do
+    calendar = LotusNotesCalendar::Calendar.new("https://harmony.mooresvilleschools.org/madison.nsf/school+calendar")
+    options = {:start => '20120101', :end => '20120131'}
+    assert_equal 'https://harmony.mooresvilleschools.org/madison.nsf/school+calendar?ReadViewEntries&PreFormat&KeyType=time&StartKey=20120101&UntilKey=20120131&Count=999', calendar.send(:build_url, options)
+    
+  end
+  
+  should "be able to get events by month" do
+    calendar = LotusNotesCalendar::Calendar.new("https://harmony.mooresvilleschools.org/madison.nsf/school+calendar")
+    results = calendar.where(:start => '20120101', :end => '20120131')
+    assert results.count > 0
+  end
   
 end

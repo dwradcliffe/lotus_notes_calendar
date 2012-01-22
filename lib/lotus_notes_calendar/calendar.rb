@@ -45,6 +45,7 @@ module LotusNotesCalendar
           url += "&KeyType=time"
           url += "&StartKey=#{options[:start]}"
           url += "&UntilKey=#{options[:end]}"
+          url += "&Count=999"
         elsif options[:date]
           url += "&Date=#{options[:date]}"
         end
@@ -52,7 +53,6 @@ module LotusNotesCalendar
       end
       def open_url(url)
         begin
-          # Rails.logger.info url
           uri = URI.parse(url)
           http = Net::HTTP.new(uri.host, uri.port)
           http.use_ssl = uri.is_a? URI::HTTPS
