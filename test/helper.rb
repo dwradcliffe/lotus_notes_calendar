@@ -1,5 +1,12 @@
 require 'rubygems'
 require 'bundler'
+
+require 'simplecov'
+SimpleCov.start do
+  add_filter "/vendor/bundle/"
+  add_filter "/test/"
+end
+
 begin
   Bundler.setup(:default, :development)
 rescue Bundler::BundlerError => e
