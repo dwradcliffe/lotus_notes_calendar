@@ -3,15 +3,15 @@ require 'bundler'
 
 require 'simplecov'
 SimpleCov.start do
-  add_filter "/vendor/bundle/"
-  add_filter "/test/"
+  add_filter '/vendor/bundle/'
+  add_filter '/test/'
 end
 
 begin
   Bundler.setup(:default, :development)
 rescue Bundler::BundlerError => e
   $stderr.puts e.message
-  $stderr.puts "Run `bundle install` to install missing gems"
+  $stderr.puts 'Run `bundle install` to install missing gems'
   exit e.status_code
 end
 require 'test/unit'

@@ -26,4 +26,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'simplecov', '~> 0.7.1'
   spec.add_development_dependency 'turn',      '~> 0.9.6'
   spec.add_development_dependency 'minitest',  '~> 3.4.0'
+  spec.add_development_dependency 'rubocop',   '~> 0.15.0'
 end

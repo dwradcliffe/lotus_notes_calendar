@@ -1,8 +1,7 @@
 require 'helper'
 
 class TestEvent < Test::Unit::TestCase
-  
-  should "be able to parse event data from xml" do
+  should 'be able to parse event data from xml' do
     raw_xml = <<END
 <viewentry position="4140" unid="852571A7002389488525791200665961" noteid="24BC0E" siblings="4533">
 <entrydata columnnumber="0" name="$6">
@@ -16,19 +15,18 @@ END
     xml_node = Nokogiri::XML(raw_xml).root
     event = LotusNotesCalendar::Event.from_xml(LotusNotesCalendar::Calendar.new(''), xml_node)
     assert_equal '852571A7002389488525791200665961', event.id
-    assert_equal Date.new(2011,12,26), event.at
+    assert_equal Date.new(2011, 12, 26), event.at
     assert_equal 'Christmas Break', event.text
-
   end
-  
-  should "be able to parse event data from html" do
+
+  should 'be able to parse event data from html' do
     raw_html = <<END
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <TITLE>Calendar Event</TITLE><style type = "text/css">  td {font-family: Arial; font-size: 9} td.menu {font-family: Arial} td.menu {font-size: 11; font-family: Arial; font-weight: normal}  a {text-decoration: none; color: navy} a:hover {text-decoration: underline; color: blue} a.menu {text-decoration: none; color: navy} a.menu:hover {text-decoration: underline; color: blue; font-weight: bold} </style>
 <script language="JavaScript" type="text/javascript">
-<!-- 
+<!--
 document._domino_target = "_self";
 function _doClick(v, o, t) {
   var returnValue = false;
@@ -74,9 +72,7 @@ END
     html_doc = Nokogiri::HTML(raw_html)
     event = LotusNotesCalendar::Event.from_html(LotusNotesCalendar::Calendar.new(''), '5C810F13E09AB8C785257912006662BC', html_doc)
     assert_equal '5C810F13E09AB8C785257912006662BC', event.id
-    assert_equal Date.new(2011,12,27), event.at
+    assert_equal Date.new(2011, 12, 27), event.at
     assert_equal 'Christmas Break', event.text
-
   end
-  
 end
