@@ -43,7 +43,6 @@ module LotusNotesCalendar
           end
           next_attr = nil
         end
-
       end
 
       # e.id = xml_node['unid']

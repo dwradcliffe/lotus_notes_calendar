@@ -1,6 +1,6 @@
 AllCops:
-  Excludes:
-    - vendor/**
+  Exclude:
+    - vendor/**/*
 
 Encoding:
   Enabled: false
@@ -16,3 +16,5 @@ AndOr:
   Enabled: false
 MethodLength:
   Max: 25
+Style/RegexpLiteral:
+  MaxSlashes: 0

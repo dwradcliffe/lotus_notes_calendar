@@ -39,29 +39,29 @@ module LotusNotesCalendar
 
     private
 
-      def build_url(options = {})
-        url = "#{@url}?ReadViewEntries&PreFormat"
-        if options[:start] and options[:end]
-          url += '&KeyType=time'
-          url += "&StartKey=#{options[:start]}"
-          url += "&UntilKey=#{options[:end]}"
-          url += '&Count=999'
-        elsif options[:date]
-          url += "&Date=#{options[:date]}"
-        end
-        url
+    def build_url(options = {})
+      url = "#{@url}?ReadViewEntries&PreFormat"
+      if options[:start] and options[:end]
+        url += '&KeyType=time'
+        url += "&StartKey=#{options[:start]}"
+        url += "&UntilKey=#{options[:end]}"
+        url += '&Count=999'
+      elsif options[:date]
+        url += "&Date=#{options[:date]}"
       end
+      url
+    end
 
-      def open_url(url)
-        uri = URI.parse(url)
-        http = Net::HTTP.new(uri.host, uri.port)
-        http.use_ssl = uri.is_a? URI::HTTPS
-        # http.ca_file = "/etc/ssl/certs/ca-certificate.crt"
-        request = Net::HTTP::Get.new(uri.request_uri)
-        # puts uri.request_uri
-        http.request(request).body
-      rescue Errno::ETIMEDOUT
-        ''
-      end
+    def open_url(url)
+      uri = URI.parse(url)
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = uri.is_a? URI::HTTPS
+      # http.ca_file = "/etc/ssl/certs/ca-certificate.crt"
+      request = Net::HTTP::Get.new(uri.request_uri)
+      # puts uri.request_uri
+      http.request(request).body
+    rescue Errno::ETIMEDOUT
+      ''
+    end
   end
 end

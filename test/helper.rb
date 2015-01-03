@@ -22,5 +22,9 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'lotus_notes_calendar'
 
-class Test::Unit::TestCase
+module Test
+  module Unit
+    class TestCase
+    end
+  end
 end
